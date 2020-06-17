@@ -2,9 +2,9 @@ package com.google.ar.sceneform.rendering;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
-import android.support.annotation.VisibleForTesting;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.annotation.VisibleForTesting;
 import android.view.Surface;
 import android.view.SurfaceView;
 import com.google.android.filament.Camera;
@@ -231,7 +231,7 @@ public class Renderer implements UiHelper.RendererCallback {
   }
 
   /** @hide */
-  public void render(boolean debugEnabled) {
+  public void render(boolean debugEnabled, long frameTimeNanos) {
     synchronized (this) {
       if (recreateSwapChain) {
         final IEngine engine = EngineInstance.getEngine();
@@ -280,7 +280,7 @@ public class Renderer implements UiHelper.RendererCallback {
           throw new AssertionError("Internal Error: Failed to get swap chain");
         }
 
-        if (renderer.beginFrame(swapChainLocal, 0)) {
+        if (renderer.beginFrame(swapChainLocal, frameTimeNanos)) {
           if (preRenderCallback != null) {
             preRenderCallback.preRender(renderer, swapChainLocal, camera);
           }

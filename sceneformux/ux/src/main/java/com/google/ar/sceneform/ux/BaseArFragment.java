@@ -25,11 +25,12 @@ import android.os.Build;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.content.ContextCompat;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+
 import android.view.GestureDetector;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -75,7 +76,6 @@ public abstract class BaseArFragment extends Fragment
      * The callback will only be invoked once after a Session is initialized and before it is
      * resumed for the first time.
      *
-     * @see #setOnSessionInitializationListener(OnTapArPlaneListener)
      * @param session The ARCore Session.
      */
     void onSessionInitialization(Session session);
