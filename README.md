@@ -99,6 +99,18 @@ dependencies {
 To get started with the Sceneform SDK, check out the
 [Sceneform sample](https://github.com/google-ar/sceneform-android-sdk/tree/master/samples/gltf/app).
 
+5. Recompile materials
+
+I'll look into updating docs to include this info. The short version is to update Filament you need to:
+
+Update the Filament references in the gradle files under sceneformsrc to the new Filament version.
+Update Sceneform source corresponding to any API breaking changes that were made in the Filament update.
+Replace all of the .matc files in sceneformsrc/sceneform/src/main/res/raw with compiled versions of the corresponding material file from sceneformsrc/sceneform/sampleData
+To recompile materials you'll need to download the version of matc for your development platform and run the following command for each material file:
+
+```
+matc --optimize-size --platform=mobile --output sceneformsrc/sceneform/src/main/res/raw/<material_name>.matc sceneformsrc/sceneform/sampleData/<material_name>.mat
+```
 
 ## Archived Sceneform 1.15.0 content
 
