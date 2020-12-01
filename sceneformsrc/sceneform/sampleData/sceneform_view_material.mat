@@ -11,6 +11,10 @@ material {
         {
             "type" : "float2",
             "name" : "offsetUv"
+        },
+        {
+            "type" : "float",
+            "name" : "alpha"
         }
     ],
     "requires" : [
@@ -37,7 +41,7 @@ fragment {
         uv.x = uv.x + materialParams.offsetUv.x * (1.0 - 2.0 * uv.x);
         uv.y = uv.y + materialParams.offsetUv.y * (1.0 - 2.0 * uv.y);
 
-        material.baseColor = texture(materialParams_viewTexture, uv);
+        material.baseColor = texture(materialParams_viewTexture, uv) * materialParams.alpha;
         material.baseColor.rgb = inverseTonemapSRGB(material.baseColor.rgb);
     }
 }

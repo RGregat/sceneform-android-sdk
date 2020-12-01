@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.google.ar.sceneform.utilities.LoadHelper;
 
-final class RenderingResources {
+public final class RenderingResources {
 
   public static enum Resource {
     CAMERA_MATERIAL,
@@ -16,6 +16,7 @@ final class RenderingResources {
     PLANE_MATERIAL,
     PLANE,
     VIEW_RENDERABLE_MATERIAL,
+    VIEW_RENDERABLE_MATERIAL_ALPHA
   };
 
   
@@ -42,6 +43,8 @@ final class RenderingResources {
         return LoadHelper.drawableResourceNameToIdentifier(context, "sceneform_plane");
       case VIEW_RENDERABLE_MATERIAL:
         return LoadHelper.rawResourceNameToIdentifier(context, "sceneform_view_material");
+      case VIEW_RENDERABLE_MATERIAL_ALPHA:
+        return LoadHelper.rawResourceNameToIdentifier(context, "sceneform_view_material_alpha");
     }
     return 0;
   }
