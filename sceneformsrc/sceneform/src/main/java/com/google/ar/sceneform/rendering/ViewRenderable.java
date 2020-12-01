@@ -442,11 +442,11 @@ public class ViewRenderable extends Renderable {
                 .setSource(
                         context,
                         RenderingResources.GetSceneformResource(
-                                context, RenderingResources.Resource.VIEW_RENDERABLE_MATERIAL))
+                                context, RenderingResources.Resource.VIEW_RENDERABLE_MATERIAL_ALPHA))
                 .build()
                 .thenAccept(
                         material -> {
-
+                          material.setFloat("alpha", 1.0f);
                           ArrayList<Vertex> vertices = new ArrayList<>();
                           vertices.add(Vertex.builder()
                                   .setPosition(new Vector3(-0.5f, 0.0f, 0.0f))
